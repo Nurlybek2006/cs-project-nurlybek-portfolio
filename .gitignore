@@ -1,0 +1,26 @@
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+
+# Build output
+bin/
+obj/
+
+# NuGet
+packages/
+
+# Logs
+*.log
+
+# Environment variables and secrets
+.env
+.env.*
+
+# Keep example environment files
+!.env.example
+
+# OS files
+.DS_Store
+Thumbs.db

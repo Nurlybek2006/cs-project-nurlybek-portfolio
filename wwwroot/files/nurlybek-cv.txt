@@ -1,0 +1,22 @@
+NURLYBEK SARSENBEKULY
+Backend Developer / Fullstack Developer
+Almaty, Kazakhstan
+
+PROFILE
+IT student at Abai University interested in backend development, software architecture, APIs and building practical applications. Focused on learning through hands-on projects and continuous study.
+
+TECHNOLOGIES
+Backend: C#, ASP.NET Core, JavaScript, TypeScript, Node.js, NestJS, Express.js
+Database: PostgreSQL, SQL Server, Redis
+ORM: Entity Framework Core, Prisma, Drizzle ORM
+Tools: Docker, Git, GitHub, Swagger, Postman
+
+EDUCATION
+IT Student — Abai University, Almaty, Kazakhstan
+
+PROJECT WORK
+Blockchain Explorer — Transaction indexing, portfolio tracking and observability.
+Smart Task Manager — Authentication, task dependencies and backend API.
+Intelligent Programming Platform — Code execution, AI tutoring and interactive coding concept.
+
+Contact and profile links: add current email, GitHub and LinkedIn details to the portfolio before sharing.

@@ -1,0 +1,10 @@
+@model IReadOnlyList<nurkybek.Models.ProjectItem>
+<section class="section-shell section-pad" id="projects">
+  <div class="section-heading heading-row"><div><p class="eyebrow">03 / Selected work</p><h2>Projects with<br /><span class="muted-heading">a purpose.</span></h2></div><p class="heading-note">Ideas explored through system design, backend workflows and practical product thinking.</p></div>
+  <div class="project-grid">
+  @foreach (var project in Model)
+  {
+    <article class="project-card"><div class="project-top"><span class="project-number">PROJECT / @project.Number</span><span class="project-mark"><i class="bi bi-arrow-up-right"></i></span></div><div class="project-art art-@project.Number"><span class="art-ring"></span><i class="bi bi-diagram-3"></i><span class="art-caption">SYSTEM / @project.Number</span></div><h3>@project.Name</h3><p>@project.Description</p><div class="project-tags">@foreach (var tech in project.Technologies) { <span>@tech</span> }</div><div class="project-links"><span class="link-unavailable"><i class="bi bi-github"></i> GitHub <small>URL not set</small></span><span class="link-unavailable"><i class="bi bi-box-arrow-up-right"></i> Demo <small>URL not set</small></span></div></article>
+  }
+  </div>
+</section>

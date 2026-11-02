@@ -1,0 +1,14 @@
+@model nurkybek.Models.HomeViewModel
+@{
+    ViewData["Title"] = "Nurlybek — Backend Developer";
+}
+
+<main>
+    <partial name="_Hero" model="Model" />
+    <partial name="_About" />
+    <partial name="_Skills" />
+    <partial name="_Projects" model="Model.Projects" />
+    <partial name="_Architecture" />
+    <partial name="_Journey" />
+    <partial name="_Contact" model="new nurkybek.Models.ContactFormModel()" />
+</main>
