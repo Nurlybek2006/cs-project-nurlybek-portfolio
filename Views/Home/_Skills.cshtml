@@ -1,9 +1,19 @@
+@{
+  var stacks = new[] {
+    new { Name = "Backend", Icon = "bi-hdd-network", Note = "Services & APIs", Items = new[] { ("C#", "csharp"), ("ASP.NET Core", "dotnet"), ("JavaScript", "javascript"), ("TypeScript", "typescript"), ("Node.js", "nodedotjs"), ("NestJS", "nestjs"), ("Express.js", "express") } },
+    new { Name = "Database", Icon = "bi-database", Note = "Storage & retrieval", Items = new[] { ("PostgreSQL", "postgresql"), ("SQL Server", "microsoftsqlserver"), ("Redis", "redis") } },
+    new { Name = "ORM", Icon = "bi-layers", Note = "Data access", Items = new[] { ("Entity Framework Core", "dotnet"), ("Prisma", "prisma"), ("Drizzle ORM", "drizzle") } },
+    new { Name = "Frontend", Icon = "bi-window", Note = "Interface & interaction", Items = new[] { ("HTML5", "html5"), ("CSS3", "css3"), ("Bootstrap", "bootstrap"), ("JavaScript", "javascript") } },
+    new { Name = "DevOps & tools", Icon = "bi-wrench-adjustable", Note = "Build, test & ship", Items = new[] { ("Docker", "docker"), ("Git", "git"), ("GitHub", "github"), ("Swagger", "swagger"), ("Postman", "postman"), ("Visual Studio", "visualstudio"), ("VS Code", "visualstudiocode") } }
+  };
+}
 <section class="section-shell section-pad" id="skills">
-  <div class="section-heading heading-row"><div><p class="eyebrow">02 / Tools of the trade</p><h2>Technology I’m<br /><span class="muted-heading">learning &amp; building with.</span></h2></div><p class="heading-note">A growing toolkit, explored through hands-on projects and continuous learning.</p></div>
-  <div class="skill-grid">
-    <article class="skill-card"><div class="skill-head"><span class="skill-symbol">&lt;/&gt;</span><div><h3>Backend</h3><p>Services &amp; APIs</p></div></div><div class="tech-list"><span>C#</span><span>ASP.NET Core</span><span>JavaScript</span><span>TypeScript</span><span>Node.js</span><span>NestJS</span><span>Express.js</span></div></article>
-    <article class="skill-card"><div class="skill-head"><span class="skill-symbol"><i class="bi bi-database"></i></span><div><h3>Database</h3><p>Storage &amp; retrieval</p></div></div><div class="tech-list"><span>PostgreSQL</span><span>SQL Server</span><span>Redis</span></div></article>
-    <article class="skill-card"><div class="skill-head"><span class="skill-symbol"><i class="bi bi-layers"></i></span><div><h3>ORM</h3><p>Data access</p></div></div><div class="tech-list"><span>Entity Framework Core</span><span>Prisma</span><span>Drizzle ORM</span></div></article>
-    <article class="skill-card"><div class="skill-head"><span class="skill-symbol"><i class="bi bi-wrench-adjustable"></i></span><div><h3>Tools</h3><p>Build &amp; ship</p></div></div><div class="tech-list"><span>Docker</span><span>Git</span><span>GitHub</span><span>Swagger</span><span>Postman</span></div></article>
+  <div class="section-heading heading-row"><div><p class="eyebrow">06 / Technology stack</p><h2>Tools I use<br /><span class="muted-heading">to turn ideas into code.</span></h2></div><p class="heading-note">Technologies I’m learning and applying in coursework and personal projects. The stack grows as the work demands.</p></div>
+  <div class="stack-grid">
+  @foreach (var stack in stacks)
+  {
+    <article class="stack-card reveal-on-scroll"><div class="stack-head"><span class="skill-symbol"><i class="bi @stack.Icon"></i></span><div><h3>@stack.Name</h3><p>@stack.Note</p></div><span class="stack-count">@stack.Items.Length.ToString("00")</span></div><div class="stack-tech-list">@foreach (var item in stack.Items) { <span class="stack-tech"><img src="https://cdn.simpleicons.org/@item.Item2/F5F5F7" alt="" loading="lazy" /><span>@item.Item1</span></span> }</div></article>
+  }
   </div>
+  <p class="stack-footnote"><i class="bi bi-info-circle"></i> Familiarity grows through use; these are technologies I’m actively exploring, not claims of years of experience.</p>
 </section>

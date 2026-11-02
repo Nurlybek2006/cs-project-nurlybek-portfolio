@@ -18,7 +18,7 @@ namespace nurkybek.Controllers
             if (!ModelState.IsValid)
                 return View("Index", new HomeViewModel());
 
-            TempData["ContactNotice"] = "Thanks for reaching out. Message delivery is not configured yet; please email me directly once my address is added here.";
+            TempData["ContactNotice"] = "Email delivery is not configured, so your message was not sent. Please connect an email service before using this form.";
             return RedirectToAction(nameof(Index), "Home", new { contact = "contact" });
         }
 

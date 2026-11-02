@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#0a0a0f" />
-    <meta name="description" content="Nurlybek — IT student focused on backend development, APIs and scalable software systems." />
+    <meta name="theme-color" content="#08080d" />
+    <meta name="description" content="Nurlybek Sarsenbekuly — IT student building backend systems, APIs and fullstack projects." />
     <title>@ViewData["Title"]</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -14,17 +14,18 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 </head>
 <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
     <header class="site-header">
         <nav class="site-nav section-shell" aria-label="Main navigation">
             <a class="brand" href="#home" aria-label="Nurlybek home">NUR<span>.</span>DEV</a>
             <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle navigation"><span></span><span></span></button>
             <div class="nav-links" id="nav-links">
-                <a href="#home">Home</a><a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#contact" class="nav-contact">Contact <i class="bi bi-arrow-up-right"></i></a>
+                <a href="#home">Home</a><a href="#about">About</a><a href="#skills">Stack</a><a href="#projects">Projects</a><a href="#architecture">Architecture</a><a href="#contact" class="nav-contact">Contact <i class="bi bi-arrow-up-right"></i></a>
             </div>
         </nav>
     </header>
     @RenderBody()
-    <footer class="site-footer section-shell"><a class="brand" href="#home">NUR<span>.</span>DEV</a><p>Designed &amp; built with curiosity.</p><span>© @DateTime.Now.Year Nurlybek</span></footer>
+    <footer class="site-footer section-shell" id="footer"><a class="brand" href="#home">NUR<span>.</span>DEV</a><p>Designed and built by Nurlybek.</p><nav class="footer-links" aria-label="Footer navigation"><a href="https://github.com/Nurlybek2006" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://www.linkedin.com/in/nurlybek-sarsenbekuly-114a27251/" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="#home">Home</a><a href="#projects">Projects</a><a href="#contact">Contact</a></nav><span>&copy; @DateTime.Now.Year Nurlybek</span><a class="back-to-top" href="#home" aria-label="Back to top"><i class="bi bi-arrow-up"></i></a></footer>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>

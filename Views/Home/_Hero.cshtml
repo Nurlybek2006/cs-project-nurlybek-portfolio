@@ -1,19 +1,20 @@
 @model nurkybek.Models.HomeViewModel
 <section class="hero section-shell" id="home">
   <div class="hero-copy">
-    <p class="eyebrow reveal"><span class="status-dot"></span> IT student · Almaty, Kazakhstan</p>
-    <h1 class="reveal delay-1">Hi, I’m <span class="gradient-text">Nurlybek</span><br /><span class="hero-role">Backend Developer<br class="mobile-break" /> &amp; Fullstack Developer</span></h1>
-    <p class="hero-intro reveal delay-2">Building scalable backend systems, APIs and modern web applications.</p>
+    <p class="eyebrow reveal"><span class="status-dot"></span> Available for opportunities <span class="eyebrow-divider">/</span> Almaty, Kazakhstan</p>
+    <h1 class="reveal delay-1"><span class="hero-greeting">Hi, I’m Nurlybek.</span><br />Building the<br /><span class="gradient-text">digital future.</span></h1>
+    <p class="hero-role-copy reveal delay-2">Backend Developer <span>&amp;</span> Fullstack Developer</p>
+    <p class="hero-intro reveal delay-2">I build modern backend systems, scalable APIs and fullstack applications. Passionate about software architecture, databases and creating real-world solutions.</p>
     <div class="hero-actions reveal delay-3">
-      <a class="button button-primary" href="#projects">View projects <i class="bi bi-arrow-up-right"></i></a>
+      <a class="button button-primary" href="#projects">Explore projects <i class="bi bi-arrow-up-right"></i></a>
       <a class="button button-quiet" href="#contact">Contact me <i class="bi bi-arrow-down-right"></i></a>
     </div>
-    <div class="hero-meta reveal delay-3"><a href="#contact"><i class="bi bi-github"></i> GitHub <span class="muted">· add profile URL</span></a><a href="#contact"><i class="bi bi-linkedin"></i> LinkedIn <span class="muted">· add profile URL</span></a><a class="cv-link" href="/files/nurlybek-cv.txt" download><i class="bi bi-download"></i> Download CV</a></div>
+    <div class="hero-meta reveal delay-3"><a href="https://github.com/Nurlybek2006" target="_blank" rel="noopener noreferrer"><i class="bi bi-github"></i> GitHub <i class="bi bi-arrow-up-right external-mark"></i></a><a href="https://www.linkedin.com/in/nurlybek-sarsenbekuly-114a27251/" target="_blank" rel="noopener noreferrer"><i class="bi bi-linkedin"></i> LinkedIn <i class="bi bi-arrow-up-right external-mark"></i></a><a class="cv-link" href="/files/nurlybek-cv.txt" download><i class="bi bi-download"></i> Download CV</a></div>
   </div>
   <div class="hero-visual reveal delay-2" aria-label="Illustration of a backend request flowing through application layers">
     <div class="visual-top"><span class="live-label"><span class="status-dot"></span> SYSTEM DESIGN</span><span class="visual-index">N° 001</span></div>
     <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
-    <div class="terminal-card"><div class="terminal-bar"><span></span><span></span><span></span><small>request-flow.cs</small></div><div class="code-lines"><div><b>01</b><span class="code-purple">const</span> request = <span class="code-green">"build something useful"</span>;</div><div><b>02</b><span class="code-purple">await</span> api.<span class="code-blue">handle</span>(request);</div><div><b>03</b><span class="code-comment">// reliable by design</span></div><div><b>04</b><span class="code-purple">return</span> <span class="code-green">{ status: "ready" }</span>;</div></div><div class="terminal-footer"><span><i class="bi bi-activity"></i> SERVICES ONLINE</span><span>99.9% <small>UPTIME*</small></span></div></div>
+    <div class="terminal-card"><div class="terminal-bar"><span></span><span></span><span></span><small>OrdersController.cs</small></div><div class="code-lines"><div><b>01</b><span class="code-purple">public async</span> Task&lt;IResult&gt;</div><div><b>02</b>CreateOrder(CreateOrderCommand command)</div><div><b>03</b>{ <span class="code-comment">// validate &amp; delegate</span></div><div><b>04</b><span class="code-purple">var</span> result = <span class="code-purple">await</span></div><div><b>05</b>_orders.<span class="code-blue">CreateAsync</span>(command);</div><div><b>06</b><span class="code-purple">return</span> Results.<span class="code-blue">Created</span>(result); }</div></div><div class="terminal-footer"><span><i class="bi bi-activity"></i> API / ORDERS</span><span>ASP.NET <small>CORE</small></span></div></div>
     <div class="float-chip chip-api"><i class="bi bi-diagram-3"></i> API first</div><div class="float-chip chip-db"><i class="bi bi-database"></i> Data layer</div>
     <div class="visual-caption">Thoughtful systems.<br /><span>Clear architecture.</span></div>
   </div>

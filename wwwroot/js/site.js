@@ -1,15 +1,96 @@
 (() => {
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const toggle = document.querySelector('.nav-toggle');
-  const links = document.querySelector('.nav-links');
-  if (toggle && links) {
+  const nav = document.querySelector('.nav-links');
+  const navItems = [...document.querySelectorAll('.nav-links a[href^="#"]')];
+
+  const closeNav = () => {
+    if (!toggle || !nav) return;
+    nav.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+  };
+
+  if (toggle && nav) {
     toggle.addEventListener('click', () => {
-      const open = links.classList.toggle('open');
-      toggle.setAttribute('aria-expanded', String(open));
+      const isOpen = nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', String(isOpen));
     });
-    links.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
-      links.classList.remove('open');
-      toggle.setAttribute('aria-expanded', 'false');
-    }));
+    navItems.forEach(link => link.addEventListener('click', closeNav));
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape') closeNav();
+    });
+    document.addEventListener('click', event => {
+      if (!nav.contains(event.target) && !toggle.contains(event.target)) closeNav();
+    });
+  }
+
+  const sections = navItems
+    .map(link => document.querySelector(link.getAttribute('href')))
+    .filter(Boolean);
+  if ('IntersectionObserver' in window && sections.length) {
+    const activeObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        navItems.forEach(link => {
+          const active = link.getAttribute('href') === `#${entry.target.id}`;
+          link.classList.toggle('is-active', active);
+          if (active) link.setAttribute('aria-current', 'location');
+          else link.removeAttribute('aria-current');
+        });
+      });
+    }, { rootMargin: '-28% 0px -62% 0px', threshold: 0 });
+    sections.forEach(section => activeObserver.observe(section));
+  }
+
+  const revealItems = document.querySelectorAll('.reveal-on-scroll, .section-heading, .status-strip, .stats-section, .workflow-track article, .journey-list article');
+  revealItems.forEach(item => item.classList.add('reveal-on-scroll'));
+  if (reduceMotion || !('IntersectionObserver' in window)) {
+    revealItems.forEach(item => item.classList.add('is-visible'));
+  } else {
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -35px 0px' });
+    revealItems.forEach(item => revealObserver.observe(item));
+  }
+
+  const stats = document.querySelector('.stats-section');
+  const counters = [...document.querySelectorAll('[data-count]')];
+  let countersStarted = false;
+  const runCounters = () => {
+    if (countersStarted) return;
+    countersStarted = true;
+    counters.forEach(counter => {
+      const end = Number(counter.dataset.count);
+      const suffix = counter.dataset.suffix || '';
+      if (!Number.isFinite(end) || reduceMotion) {
+        counter.textContent = `${counter.textContent.trim()}${suffix && !counter.textContent.includes(suffix) ? suffix : ''}`;
+        return;
+      }
+      const duration = 800;
+      const startAt = performance.now();
+      const tick = now => {
+        const progress = Math.min((now - startAt) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        counter.textContent = `${String(Math.round(end * eased)).padStart(2, '0')}${suffix}`;
+        if (progress < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    });
+  };
+  if (stats && 'IntersectionObserver' in window) {
+    const statsObserver = new IntersectionObserver(entries => {
+      if (entries.some(entry => entry.isIntersecting)) {
+        runCounters();
+        statsObserver.disconnect();
+      }
+    }, { threshold: 0.4 });
+    statsObserver.observe(stats);
+  } else {
+    runCounters();
   }
 
   const form = document.querySelector('.contact-form');

@@ -4,15 +4,17 @@ public sealed class HomeViewModel
 {
     public string Name { get; init; } = "Nurlybek Sarsenbekuly";
     public string Role { get; init; } = "Backend Developer & Fullstack Developer";
+    public string GitHubUrl { get; init; } = "https://github.com/Nurlybek2006";
+    public string LinkedInUrl { get; init; } = "https://www.linkedin.com/in/nurlybek-sarsenbekuly-114a27251/";
     public IReadOnlyList<ProjectItem> Projects { get; init; } =
     [
-        new("01", "Blockchain Explorer", "A backend-focused blockchain explorer with transaction indexing, portfolio tracking, and observability.", ["NestJS", "PostgreSQL", "Redis", "Docker", "OpenTelemetry"]),
-        new("02", "Smart Task Manager", "A task management application with authentication, task dependencies, and a thoughtfully designed backend API.", ["TypeScript", "Express.js", "Prisma", "PostgreSQL", "Redis"]),
-        new("03", "Intelligent Programming Platform", "An educational programming platform concept with code execution, AI tutoring, and interactive coding features.", ["ASP.NET Core", "C#", "SQL Server", "Entity Framework Core"])
+        new("01", "Blockchain Explorer", "A blockchain explorer platform focused on backend architecture, transaction indexing, portfolio tracking and blockchain data processing.", ["NestJS", "PostgreSQL", "Redis", "Docker", "OpenTelemetry", "TypeScript"], "https://github.com/Nurlybek2006/blockchain-explorer", null, "Backend / Blockchain"),
+        new("02", "Smart Task Manager", "A modern task management application featuring authentication, task dependencies, backend API and database integration.", ["TypeScript", "Express.js", "Prisma", "PostgreSQL", "Redis"], "https://github.com/Nurlybek2006/Smart-Task-Manager", null, "Backend / Fullstack"),
+        new("03", "E-Commerce", "An e-commerce application focused on product management, shopping workflows and backend application development.", ["JavaScript", "Node.js", "Backend APIs", "Database"], "https://github.com/Nurlybek2006/e-commerce", null, "Fullstack / E-Commerce")
     ];
 }
 
-public sealed record ProjectItem(string Number, string Name, string Description, IReadOnlyList<string> Technologies, string? GithubUrl = null, string? DemoUrl = null);
+public sealed record ProjectItem(string Number, string Name, string Description, IReadOnlyList<string> Technologies, string? GithubUrl = null, string? DemoUrl = null, string Category = "Backend / Fullstack");
 
 public sealed class ContactFormModel
 {

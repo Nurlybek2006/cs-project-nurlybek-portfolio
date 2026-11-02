@@ -3,12 +3,18 @@
     ViewData["Title"] = "Nurlybek — Backend Developer";
 }
 
-<main>
+<main id="main-content">
     <partial name="_Hero" model="Model" />
+    <partial name="_Status" />
     <partial name="_About" />
+    <partial name="_Stats" />
     <partial name="_Skills" />
+    <partial name="_Competencies" />
+    <partial name="_FeaturedProject" model="Model.Projects[0]" />
     <partial name="_Projects" model="Model.Projects" />
     <partial name="_Architecture" />
+    <partial name="_Workflow" />
     <partial name="_Journey" />
+    <partial name="_GitHub" model="Model" />
     <partial name="_Contact" model="new nurkybek.Models.ContactFormModel()" />
 </main>
